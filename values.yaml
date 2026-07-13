@@ -1,0 +1,24 @@
+frontend:
+  replicaCount: 1
+
+  image:
+    repository: nginx
+    tag: "1.29"
+    pullPolicy: IfNotPresent
+
+  service:
+    type: ClusterIP
+    port: 80
+
+backend:
+  replicaCount: 1
+
+  image:
+    repository: hashicorp/http-echo
+    tag: "1.0"
+
+  service:
+    type: ClusterIP
+    port: 5678
+
+  text: "Hello from backend"
